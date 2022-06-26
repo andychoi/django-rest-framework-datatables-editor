@@ -1,4 +1,4 @@
-from django.conf.urls import url, include
+from django.urls import re_path, include
 from django.contrib import admin
 from rest_framework import routers
 
@@ -11,7 +11,7 @@ router.register(r'artists', views.ArtistViewSet)
 
 
 urlpatterns = [
-    url('^admin/', admin.site.urls),
-    url('^api/', include(router.urls)),
-    url('^$', views.index, name='albums')
+    re_path('^admin/', admin.site.urls),
+    re_path('^api/', include(router.urls)),
+    re_path('^$', views.index, name='albums')
 ]
